@@ -4,6 +4,7 @@
 install_docker() {
     sudo apt update
     sudo apt install -y docker.io
+    sudo chmod 777 /var/run/docker.sock
     sudo systemctl start docker
     sudo systemctl enable docker
 }
@@ -30,14 +31,6 @@ install_minikube() {
     sudo install minikube-linux-amd64 /usr/local/bin/minikube
     rm minikube-linux-amd64
 }
-
-# Fonction pour changer les IP tables avec update-alternatives
-update_ip_tables() {
-    sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
-}
-
-# Configuration des IP tables pour que le daemon docker puisse démarrer avec WSL
-update_ip_tables
 
 # Installation de Docker, Helm, kubectl et Minikube
 install_docker
