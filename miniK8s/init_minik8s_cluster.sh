@@ -10,7 +10,7 @@ install_argocd() {
     kubectl create namespace argocd
     helm repo add argo https://argoproj.github.io/argo-helm
     helm repo update
-    helm install argocd argo/argo-cd -n argocd -f https://github.com/ssow98/Kubernetes/blob/main/apps/init_k8s_cluster.sh
+    helm install argocd argo/argo-cd -n argocd -f https://github.com/ssow98/Kubernetes/raw/main/apps/argocd/values.yaml
 }
 
 install_argocd_cli(){
